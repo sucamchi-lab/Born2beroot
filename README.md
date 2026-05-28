@@ -21,16 +21,23 @@
 ## Decisiones de arquitectura
 
 
-### Debian vs Rocky:
+### Debian vs ~~Rocky~~ :
+
+Elegí Debian por la amplitud de su documentación, que acelera la resolución de problemas. Debian es también la base de muchas otras distros, lo que hace que el conocimiento sea transferible. 
 
 
-### AppArmor vs SELinux:
+### AppArmor vs ~~SELinux~~ :
+
+AppArmor viene integrado con Debian y sus perfiles son legibles directamente como texto en `/etc/apparmor.d/`.
 
 
-### UFW vs firewalld:
+### UFW vs ~~firewalld~~ :
 
+UFW (Uncomplicated Firewall) es el frontend estándar en Debian. Su sintaxis es explícita y sencilla, lo que facilita entender las reglas sin documentación adicional.
 
-### VirtualBox vs UTM:
+### VirtualBox vs ~~UTM~~ :
+
+Al estar trabajando con Linux, la decisión es sencilla. UTM está diseñado para MacOS.
 
 
 ## Instalación
