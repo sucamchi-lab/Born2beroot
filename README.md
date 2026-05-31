@@ -15,7 +15,7 @@ Este proyecto consiste en virtualizar un servidor desde cero, usando Virtualbox 
 - **Username:** scamlett
 - **Formato del disco duro:** Crear al menos 2 particiones encriptadas usando LVM.
 - **Reglas sudo:**
--Además del usuario de raíz, debo tener un usuario presente con mi nombre de login.
+- Además del usuario de raíz, debo tener un usuario presente con mi nombre de login.
 - El usuario debe pertenecer a los grupos `sudo` y `user42`. 
 - Autenticación sudo debe estar limitada a 3 intentos en caso de contraseña incorrecta.
 - Se debe mostrar un mensaje personalizado al introducir una contraseña incorrecta.
@@ -35,7 +35,8 @@ Este proyecto consiste en virtualizar un servidor desde cero, usando Virtualbox 
 
 ## monitoring.sh
 
-Así se debe configurar el script de bash para que muestre la información necesaria:
+Así se debe configurar el script de bash para que muestre la información necesaria, formateado de forma idéntica al ejemplo en el subject:
+
 ```bash
 #!/bin/bash
 
@@ -96,11 +97,10 @@ wall "	Architecture: $arch
 	Network: IP $ip ($mac)
 	Sudo: $cmnd cmd"
 ```
-Posteriormente, se configura `crontab` para mostrar la información cada 10 minutos:
+Posteriormente, se configura `crontab` para mostrar la información cada 10 minutos, añadiendo al final la siguiente línea:
 ```bash
 sudo crontab -u root -e
 ```
-Y añadir al final lo siguiente:
 
 `*/10 * * * * sh /home/scamlett/monitoring.sh`
 
@@ -129,7 +129,7 @@ Al estar trabajando con Linux, la decisión es sencilla. UTM está diseñado par
 ## Instalación
 
 1. Descargar el repositorio
-2. Abrir Virtualbox y comprobar que `signature.txt` coincide con la firma de la muina virtual evaluada.
+2. Abrir Virtualbox y comprobar que `signature.txt` coincide con la firma de la máquina virtual evaluada.
 3. Lanzar la máquina virtual con `Start` y seguir la hoja de evaluación del proyecto.
 
 ## Recursos
@@ -150,32 +150,34 @@ AppArmor es un módulo de seguridad de Linux que proporciona seguridad de Contro
 
 ### Características principales:
 
- Restringe las capacidades de los programas y su acceso a los recursos del sistema.
+- Restringe las capacidades de los programas y su acceso a los recursos del sistema.
 
-Usa perfiles de seguridad para definir a qué recursos pueden acceder las aplicaciones.
+- Usa perfiles de seguridad para definir a qué recursos pueden acceder las aplicaciones.
 
-Controla el acceso según las rutas de los archivos.
+- Controla el acceso según las rutas de los archivos.
 
-Las aplicaciones solo pueden acceder a los recursos explícitamente permitidos.
+- Las aplicaciones solo pueden acceder a los recursos explícitamente permitidos.
 
-Funciona junto con los permisos de archivo estándar de Linux.
+- Funciona junto con los permisos de archivo estándar de Linux.
 
 ## ¿Qué es LVM?
 LVM (Logical Volume Manager) es un framework de mapeo de dispositivos que proporciona gestión de volúmenes lógicos para el kernel de Linux. 
 
 ### Beneficios principales:
 
-Flexibilidad:
+- Redimensionamiento dinámico de particiones sin desmontar
+- Gestión sencilla del almacenamiento en múltiples dispositivos físicos
+- Creación de snapshots para copias de seguridad.
 
-Redimensionamiento dinámico de particiones sin desmontar
-Gestión sencilla del almacenamiento en múltiples dispositivos físicos
-Creación de snapshots para copias de seguridad.
+### Estructura:
 
-Estructura:
+- Volúmenes Físicos (PV): Discos duros físicos o particiones.
 
-Volúmenes Físicos (PV): Discos duros físicos o particiones.
+- Grupos de Volúmenes (VG): Conjuntos de volúmenes físicos.
 
-Grupos de Volúmenes (VG): Conjuntos de volúmenes físicos.
+- Volúmenes Lógicos (LV): Particiones virtuales que pueden abarcar múltiples volúmenes físicos.
 
-Volúmenes Lógicos (LV): Particiones virtuales que pueden abarcar múltiples volúmenes físicos.
+## Comandos durante la evaluación:
+TODO
+
 
