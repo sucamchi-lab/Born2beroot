@@ -109,7 +109,7 @@ Y añadir al final lo siguiente:
 
 ### Debian vs ~~Rocky~~ :
 
-Elegí Debian por la amplitud de su documentación, que acelera la resolución de problemas. Debian es también la base de muchas otras distros, lo que hace que el conocimiento sea transferible. 
+Elegí Debian por su sencillez y la amplitud de su documentación, que acelera la resolución de problemas. Debian es también la base de muchas otras distros, lo que hace que el conocimiento sea transferible. 
 
 
 ### AppArmor vs ~~SELinux~~ :
@@ -178,4 +178,57 @@ Volúmenes Físicos (PV): Discos duros físicos o particiones.
 Grupos de Volúmenes (VG): Conjuntos de volúmenes físicos.
 
 Volúmenes Lógicos (LV): Particiones virtuales que pueden abarcar múltiples volúmenes físicos.
+
+## Comandos útiles
+
+Conexión SSH: `ssh scamlett@localhost -p 4241`
+
+Lanzar script: `bash monitoring.sh`
+
+No interfaz gŕafica: `ls /usr/bin/*session`
+
+UFW: `sudo ufw status` `sudo service ufw status`
+
+UFW avanzado: `dpkg -s ufw`
+
+Reglas UFW: `sudo ufw status numbered`
+
+SSH: `which ssh` `sudo service ssh status`
+
+OS: `uname --kernel-version`
+
+Comprobar usuarios/grupos: `getent group sudo scamlett42`
+
+Crear usuario: `sudo adduser name`
+
+Crear grupo: `sudo addgroup evaluating`
+
+Añadir usuario a grupo: `sudo adduser name_user evaluating`
+
+`hostname`
+
+Modificar hostname: `sudo nano /etc/hostname`
+
+Modificar login: `sudo nano /etc/hosts`
+
+Reiniciar máquina: `sudo reboot`
+
+Particiones disco duro: `lsblk`
+
+sudo: `which sudo`
+
+Añadir usuario a sudo: `sudo adduser name sudo`
+
+Reglas sudo: `nano /etc/sudoers.d/sudo_config`
+
+Logs sudo: `cd /var/log/sudo && cat sudo_config`
+
+Crear puerto ssh: `sudo ufw allow 8080`
+
+Eliminar regla UFW: `sudo ufw delete number`
+
+Leer crontab: `sudo crontab -u root -e`
+
+
+
 
